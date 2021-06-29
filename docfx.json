@@ -1,0 +1,57 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "[Project name with path for build].csproj",
+            "[Project name with path for build].csproj",
+          ],
+          "src": "src",
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "_docfx_site/**"
+          ]
+        }
+      ],
+      "dest": "_docfx_temp/backend/",
+      "disableGitFeatures": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "src": "_docfx_temp/backend",
+        "files": [
+          "**.yml"
+        ],
+        "dest": "backend/"
+      }
+    ],
+    "overwrite": [
+      {
+        "files": [
+        ],
+        "exclude": [
+          "**/bin/**",
+          "**/obj/**",
+          "_docfx_site/**"
+        ]
+      }
+    ],
+    "dest": "_docfx_site",
+    "globalMetadataFiles": [],
+    "fileMetadataFiles": [],
+    "template": [
+	  "default",
+	  "_docfx_custom_template"
+    ],
+    "postProcessors": [],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

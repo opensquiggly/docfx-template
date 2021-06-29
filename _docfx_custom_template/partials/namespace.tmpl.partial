@@ -1,0 +1,11 @@
+<h1>{{id}} - {{uid}} - {{>partials/title}}</h1>
+<div>{{{summary}}}</div>
+<div>{{{conceptual}}}</div>
+<div>{{{remarks}}}</div>
+{{#children}}
+  <h3 id="{{id}}">{{>partials/namespaceSubtitle}}</h3>
+  {{#children}}
+    <h4>{{uid}}</h4>
+    <section>{{{summary}}}</section>
+  {{/children}}
+{{/children}}
