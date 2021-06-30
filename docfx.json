@@ -45,7 +45,7 @@
     "fileMetadataFiles": [],
     "template": [
 	  "default",
-	  "_docfx_custom_template"
+	  "docfx_custom_template"
     ],
     "postProcessors": [],
     "markdownEngineName": "markdig",
