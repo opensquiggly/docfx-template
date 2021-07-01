@@ -1,53 +1,48 @@
-<h1>{{id}} - {{uid}} - {{>partials/title}}</h1>
-<div>{{{summary}}}</div>
-<div>{{{conceptual}}}</div>
+<title>{{id}} - {{uid}} - {{>partials/title}}</title>
+<summary>{{{summary}}}</summary>
+<conceptual>{{{conceptual}}}</conceptual>
 {{#inClass}}
-<div>
-  <h5>{{__global.inheritance}}</h5>
-  {{#inheritance}}
-  <div>{{index}} - {{{specName.0.value}}}</div>
-  {{/inheritance}}
-  <div><span>{{level}} - {{name.0.value}}</span></div>
-  {{#derivedClasses}}
-    <div>{{index}} - {{{specName.0.value}}}</div>
-  {{/derivedClasses}}
-</div>
+<inClass>
+  <global>{{__global.inheritance}}</global>
+  <name>{{level}} - {{name.0.value}}</name>
+  <specName>{{index}} - {{{specName.0.value}}}</specName>
+</inClass>
 {{/inClass}}
 {{#implements.0}}
-<div>
-  <h5>{{__global.implements}}</h5>
+<implements>
+  <global>{{__global.implements}}</global>
 {{/implements.0}}
 {{#implements}}
-  <div>{{{specName.0.value}}}</div>
+  <specName>{{{specName.0.value}}}</specName>
 {{/implements}}
 {{#implements.0}}
-</div>
+</implements>
 {{/implements.0}}
 {{#inheritedMembers.0}}
-<div>
-  <h5>{{__global.inheritedMembers}}</h5>
+<inheritedMembers>
+  <global>{{__global.inheritedMembers}}</global>
 {{/inheritedMembers.0}}
 {{#inheritedMembers}}
-  <div> {{definition}} - {{nameWithType.0.value}} - {{fullName.0.value}}
+  <definition> {{definition}} - {{nameWithType.0.value}} - {{fullName.0.value}}
   {{#definition}}
     {{definition}} - {{nameWithType.0.value}} - {{fullName.0.value}}
   {{/definition}}
   {{^definition}}
     {{definition}} - {{nameWithType.0.value}} - {{fullName.0.value}}
   {{/definition}}
-  </div>
+  </definition>
 {{/inheritedMembers}}
 {{#inheritedMembers.0}}
-</div>
+</inheritedMembers>
 {{/inheritedMembers.0}}
-<h6><strong>{{__global.namespace}}</strong>: {{{namespace.specName.0.value}}}</h6>
-<h6><strong>{{__global.assembly}}</strong>: {{assemblies.0}}.dll</h6>
-<h5>{{id}} - {{__global.syntax}}</h5>
-<div>
-  <pre><code>{{_lang}} - {{syntax.content.0.value}}</code></pre>
-</div>
+<namespace>{{__global.namespace}} : {{{namespace.specName.0.value}}}</namespace>
+<assemblies>{{__global.assembly}} : {{assemblies.0}}.dll</assemblies>
+<syntax>{{id}} - {{__global.syntax}}</syntax>
+<content>
+  {{_lang}} - {{syntax.content.0.value}}
+</content>
 {{#syntax.parameters.0}}
-<h5>{{__global.parameters}}</h5>
+<parameters>{{__global.parameters}}</parameters>
 <table>
   <thead>
     <tr>
@@ -70,7 +65,7 @@
 </table>
 {{/syntax.parameters.0}}
 {{#syntax.return}}
-<h5>{{__global.returns}}</h5>
+<returns>{{__global.returns}}</returns>
 <table>
   <thead>
     <tr>
@@ -87,7 +82,7 @@
 </table>
 {{/syntax.return}}
 {{#syntax.typeParameters.0}}
-<h5>{{__global.typeParameters}}</h5>
+<typeParameters>{{__global.typeParameters}}</typeParameters>
 <table>
   <thead>
     <tr>
@@ -108,12 +103,9 @@
 </table>
 {{/syntax.typeParameters.0}}
 {{#remarks}}
-<h5><strong>{{id}} - {{__global.remarks}}</strong></h5>
-<div>{{{remarks}}}</div>
+<remarksId>{{id}} - {{__global.remarks}}</remarksId>
+<remarks>{{{remarks}}}</remarks>
 {{/remarks}}
 {{#example.0}}
-<h5><strong>{{id}} - {{__global.examples}}</strong></h5>
+<examples>{{id}} - {{__global.examples}}</examples>
 {{/example.0}}
-{{#example}}
-{{{.}}}
-{{/example}}

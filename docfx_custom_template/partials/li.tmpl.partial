@@ -1,11 +1,11 @@
-<ul>
+<items>
   {{#items}}
     {{^dropdown}}
       <li>
         {{^leaf}}
         {{/leaf}}
         {{#topicHref}}
-          <a>{{topicHref}} - {{tocHref}} - {{name}}</a>
+          <topic>{{topicHref}} - {{tocHref}} - {{name}}</topic>
         {{/topicHref}}
         {{^topicHref}}
           <a>{{{name}}}</a>
@@ -16,12 +16,12 @@
       </li>
     {{/dropdown}}
     {{#dropdown}}
-      <li>
-        <a>{{name}} <span></span></a>
-        <ul>
-          {{level}} - {{>partials/dd-li}}
-        </ul>
-      </li>
+      <name>
+      {{name}} 
+        <level>
+        {{level}} - {{>partials/dd-li}}
+        </level>
+      </name>
     {{/dropdown}}
   {{/items}}
-</ul>
+</items>

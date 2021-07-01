@@ -1,11 +1,11 @@
-<h1>{{id}} - {{uid}} - {{>partials/title}}</h1>
-<div>{{{summary}}}</div>
-<div>{{{conceptual}}}</div>
-<div>{{{remarks}}}</div>
+<title>{{id}} - {{uid}} - {{>partials/title}}</title>
+<summary>{{{summary}}}</summary>
+<conceptual>{{{conceptual}}}</conceptual>
+<remarks>{{{remarks}}}</remarks>
 {{#children}}
-  <h3 id="{{id}}">{{>partials/namespaceSubtitle}}</h3>
+  <namespaceSubtitle>{{id}} - {{>partials/namespaceSubtitle}}</namespaceSubtitle>
   {{#children}}
-    <h4>{{uid}}</h4>
-    <section>{{{summary}}}</section>
+    <uid>{{uid}}</uid>
+    <summary>{{{summary}}}</summary>
   {{/children}}
 {{/children}}

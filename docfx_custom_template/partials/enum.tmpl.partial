@@ -1,6 +1,6 @@
 {{>partials/class.header}}
 {{#children}}
-<h3 id="{{id}}">{{>partials/classSubtitle}}</h3>
+<classSubtitle>{{>partials/classSubtitle}}</classSubtitle>
 <table>
   <thead>
     <tr>
@@ -19,30 +19,34 @@
 </table>
 {{/children}}
 {{#seealso.0}}
-<h5 id="{{id}}_seealso">{{__global.seealso}}</h5>
-<div>
+<{{id}}_seealso>{{__global.seealso}}</{{id}}_seealso>
+<seealso>
 {{/seealso.0}}
 {{#seealso}}
   {{#isCref}}
-    <div>{{{type.specName.0.value}}}</div>
+    {{{type.specName.0.value}}}
   {{/isCref}}
   {{^isCref}}
-    <div>{{{url}}}</div>
+    {{{url}}}
   {{/isCref}}
 {{/seealso}}
 {{#seealso.0}}
-</div>
+</seealso>
 {{/seealso.0}}
 {{#extensionMethods.0}}
-<h3>{{__global.extensionMethods}}</h3>
+<extensionMethods>{{__global.extensionMethods}}</extensionMethods>
 {{/extensionMethods.0}}
 {{#extensionMethods}}
-<div>
+<extensionMethod>
   {{#definition}}
-    <xref uid="{{definition}}" fullName="{{fullName.0.value}}" name="{{nameWithType.0.value}}"/>
+    <definition>{{definition}}</definition>
+    <fullName>{{fullName.0.value}}</fullName>
+    <nameWithType>{{nameWithType.0.value}}</nameWithType>
   {{/definition}}
   {{^definition}}
-    <xref uid="{{uid}}" fullName="{{fullName.0.value}}" name="{{nameWithType.0.value}}"/>
+    <uid>{{uid}}</uid> 
+    <fullName>{{fullName.0.value}}</fullName> 
+    <nameWithType>{{nameWithType.0.value}}</nameWithType>
   {{/definition}}
-</div>
+</extensionMethod>
 {{/extensionMethods}}
