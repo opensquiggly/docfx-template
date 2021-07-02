@@ -1,46 +1,42 @@
-<h1 id="{{id}}" data-uid="{{uid}}">{{>partials/title}}</h1>
-<div>{{{summary}}}</div>
-<div>{{{conceptual}}}</div>
+<title>{{id}} - {{uid}} - {{>partials/title}}</title>
+<summary>{{{summary}}}</summary>
+<conceptual>{{{conceptual}}}</conceptual>
 {{#inheritance.0}}
-<div>
-  <h5>{{__global.inheritance}}</h5>
+<inheritanceId>
+  <inheritance>{{__global.inheritance}}</inheritance>
 {{/inheritance.0}}
 {{#inheritance.0.value}}
     {{>partials/uref/inheritance}}
 {{/inheritance.0.value}}
 {{#inheritance.0}}
-    <div><span>{{name.0.value}}</span></div>
-</div>
+    <nameValue>{{name.0.value}}</nameValue>
 {{/inheritance.0}}
 {{#inheritedMembers.0}}
-<div>
-  <h5>{{__global.inheritedMembers}}</h5>
+<inheritanceId>
+  <inheritedMembers>{{__global.inheritedMembers}}</inheritedMembers>
 {{/inheritedMembers.0}}
 {{#inheritedMembers}}
-  <div>
   {{#definition}}
     <definition>{{definition}}</definition>
   {{/definition}}
   {{^definition}}
     <uid>{{uid}}</uid>
   {{/definition}}
-  </div>
 {{/inheritedMembers}}
 {{#inheritedMembers.0}}
-</div>
 {{/inheritedMembers.0}}
 {{#namespace.0}}
-<h6><strong>{{__global.namespace}}</strong>: {{{value.specName.0.value}}}</h6>
+<namespace>{{__global.namespace}}: {{{value.specName.0.value}}}</namespace>
 {{/namespace.0}}
 {{#package.0}}
-<h6><strong>{{__global.package}}</strong>: {{{value.specName.0.value}}}</h6>
+<package>{{__global.package}}: {{{value.specName.0.value}}}</package>
 {{/package.0}}
 {{#remarks}}
-<h5 id="{{id}}_remarks"><strong>{{__global.remarks}}</strong></h5>
-<div class="markdown level0 remarks">{{{remarks}}}</div>
+<globalRemarks>{{id}} - {{__global.remarks}}</globalRemarks>
+<remarks>{{{remarks}}}</remarks>
 {{/remarks}}
 {{#example.0}}
-<h5 id="{{id}}_examples"><strong>{{__global.examples}}</strong></h5>
+<examples>{{id}} - {{__global.examples}}</examples>
 {{/example.0}}
 {{#example}}
 {{{.}}}
