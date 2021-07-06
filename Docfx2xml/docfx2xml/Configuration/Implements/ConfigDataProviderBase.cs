@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Docfx2xml.Configuration
+namespace Docfx2xml.Configuration.Implements
 {
   public abstract class ConfigDataProviderBase : IConfigDataProvider
   {

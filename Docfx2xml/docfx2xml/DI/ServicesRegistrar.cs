@@ -1,4 +1,5 @@
 ﻿using Docfx2xml.Configuration;
+using Docfx2xml.Configuration.Implements;
 using Docfx2xml.Converter;
 using Docfx2xml.Logger;
 using Docfx2xml.XmlConverter;
@@ -13,7 +14,7 @@ namespace Docfx2xml.DI
       serviceCollection.AddSingleton<ILogger, ConsoleLogger>();
       serviceCollection.AddSingleton<IXmlConverter, DefaultXmlConverter>();
       serviceCollection.AddSingleton<IDataLoader, LocalFilesDataLoader>();
-      serviceCollection.AddSingleton<IConfigDataProvider, JsonFileConfigDataProvider>();
+      serviceCollection.AddSingleton<IConfigDataProviderFactory, ConfigDataProviderFactory>();
       serviceCollection.AddSingleton<IDataConverter, LocalFilesDataConverter>();
 
       return serviceCollection.BuildServiceProvider();
