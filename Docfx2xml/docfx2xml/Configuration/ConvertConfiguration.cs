@@ -18,5 +18,9 @@ namespace Docfx2xml.Configuration
     [JsonProperty("xsltFilePath", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)] 
     [XmlElement(ElementName = "XsltFilePath", IsNullable = true)] 
     public string XsltFilePath { get; set; }
+    
+    [JsonProperty("saveToNamespaceFolders", Required = Required.Default, NullValueHandling = NullValueHandling.Ignore)] 
+    [XmlElement(ElementName = "SaveToNamespaceFolders", IsNullable = true)] 
+    public bool SaveToNamespaceFolders { get; set; }
   }
 }

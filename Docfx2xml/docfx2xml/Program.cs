@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using Docfx2xml.Configuration;
 using Docfx2xml.Converter;
 using Docfx2xml.DI;
 using Docfx2xml.Logger;
@@ -20,7 +21,9 @@ namespace Docfx2xml
       try
       {
         stopWatch.Start();
-        await dataConverter.ConvertAsync();
+        var configProvider = serviceProvider.GetService<IConfigDataProvider>();
+        var config = await configProvider.GetConfigurationAsync();
+        await dataConverter.ConvertAsync(config);
       }
       catch (Exception ex)
       {

@@ -9,8 +9,8 @@ namespace Docfx2xml.Converter
   {
     public void UploadData(XmlDocument document, ConvertConfiguration config, string xmlFileName, string namespaceName)
     {
-      // TODO can put xml files to namespace folders
-      var fileName = BuildFileName(config.XmlOutPath, $"{xmlFileName}.xml", null);
+      var namespaceNameValue = config.SaveToNamespaceFolders ? namespaceName : null;
+      var fileName = BuildFileName(config.XmlOutPath, $"{xmlFileName}.xml", namespaceNameValue);
       document.Save(fileName);
     }
     

@@ -1,3 +1,0 @@
-{{#items}}
-  <li><a>{{topicHref}} - {{name}}</a></li>
-{{/items}}

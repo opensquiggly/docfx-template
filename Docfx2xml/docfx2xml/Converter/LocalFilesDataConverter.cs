@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Docfx2xml.Configuration;
@@ -13,26 +12,20 @@ namespace Docfx2xml.Converter
 {
   public class LocalFilesDataConverter : IDataConverter
   {
-    private readonly IConfigDataProvider _configDataProvider;
     private readonly ILogger _logger;
     private readonly IXmlConverter _xmlConverter;
     private readonly IDataLoader _dataLoader;
-    
-    public LocalFilesDataConverter(IConfigDataProvider configDataProvider, ILogger logger, IXmlConverter xmlConverter, IDataLoader dataLoader)
+
+    public LocalFilesDataConverter(ILogger logger, IXmlConverter xmlConverter, IDataLoader dataLoader)
     {
-      _configDataProvider = configDataProvider;
       _logger = logger;
       _xmlConverter = xmlConverter;
       _dataLoader = dataLoader;
     }
 
-    public void Convert() => ConvertAsync().GetAwaiter().GetResult();
+    public void Convert(ConvertConfiguration config) => ConvertAsync(config).GetAwaiter().GetResult();
 
-    public async Task ConvertAsync()
-    {
-      var config = await GetConfig();
-      ConvertImplement(config);
-    }
+    public Task ConvertAsync(ConvertConfiguration config) => Task.Run(() => ConvertImplement(config));
 
     private void ConvertImplement(ConvertConfiguration config)
     {
@@ -66,20 +59,6 @@ namespace Docfx2xml.Converter
       }
       _logger.LogInformation("...");
       _logger.LogInformation($"Processed files:{files.Length}");
-    }
-
-    private async Task<ConvertConfiguration> GetConfig()
-    {
-      var config = await _configDataProvider.GetConfigurationAsync();
-      if(string.IsNullOrEmpty(config?.XmlOutPath))
-      {
-        throw new ArgumentNullException(nameof(config.XmlOutPath));
-      }
-      if (string.IsNullOrEmpty(config.XsltFilePath))
-      {
-        throw new ArgumentNullException(nameof(config.XsltFilePath));
-      }
-      return config;
     }
   }
 }
