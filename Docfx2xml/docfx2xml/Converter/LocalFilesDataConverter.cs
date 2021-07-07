@@ -39,6 +39,7 @@ namespace Docfx2xml.Converter
       var deserializer = new DeserializerBuilder()
         .IgnoreUnmatchedProperties()
         .Build();
+      
       foreach (var file in files)
       {
         if (Path.GetFileName(file) == "toc.yml")
@@ -52,9 +53,9 @@ namespace Docfx2xml.Converter
         var yamlData = deserializer.Deserialize<DataInfo>(readerYaml);
         var xml = _xmlConverter.ConvertToDoc(yamlData, config.XsltFilePath);
         var xmlFileName = Path.GetFileNameWithoutExtension(file);
-        
-        _dataLoader.UploadData(xml, config, xmlFileName, null);
-        
+
+        var namespaceName = yamlData.Items.FirstOrDefault()?.Namespace;
+        _dataLoader.UploadData(xml, config, xmlFileName, namespaceName);
         _logger.LogInformation($"Saved {xmlFileName}.xml");
       }
       _logger.LogInformation("...");

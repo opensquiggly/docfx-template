@@ -51,7 +51,7 @@ namespace Docfx2xml
 
     static Parser BuildParser()
     {
-      //var parser = new Parser(options => options.AutoHelp = true);
+      //return new Parser(options => options.AutoHelp = true);
       return Parser.Default;
     }
 
