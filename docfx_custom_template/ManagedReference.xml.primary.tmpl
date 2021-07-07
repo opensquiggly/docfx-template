@@ -1,0 +1,12 @@
+{{!master(layout/_master.tmpl)}}
+
+{{#isNamespace}}
+  {{>partials/namespace}}
+{{/isNamespace}}
+{{#isClass}}
+  {{>partials/class}}
+{{/isClass}}
+{{#isEnum}}
+  {{>partials/enum}}
+{{/isEnum}}
+{{>partials/customMREFContent}}
